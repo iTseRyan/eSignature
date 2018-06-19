@@ -1,0 +1,22 @@
+#information-form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: auto;
+}
+
+#fName-container, #lName-container {
+  padding: 10px;
+}
+
+#loginBtn {
+  margin: 20px;
+  width: 260px;
+}
+#fName, #lName {
+  margin: 0 auto;
+}
+
+.errorMessage {
+  color: red;
+}

@@ -1,0 +1,32 @@
+<form>
+  <div id="information-form-container" align='center'>
+
+    <h4>Permission Form</h4>
+
+    <div id=fName-container>
+      <mat-form-field>
+        <input matInput placeholder="Enter your username" id="fName" type="text" [formControl]="fName" required #usernameInput>
+        <p>{{value}}</p>
+        <mat-error *ngIf="fName.hasError('required')">
+          <span>First Name is <strong>required</strong></span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div id=lName-container>
+      <mat-form-field>
+        <input matInput placeholder="Enter your password" id="lName" type="text" [formControl]="lName" required #passwordInput>
+        <p>{{value}}</p>
+        <mat-error *ngIf="lName.hasError('required')">
+          <span>Last Name is <strong>required</strong></span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div id="confirmation-checkboxes-container">
+
+    </div>
+
+    <button type="button" id="loginBtn" mat-raised-button color="primary" (click)="login(usernameInput.value,passwordInput.value)">Confirm</button>
+  </div>
+</form>
