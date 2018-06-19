@@ -1,5 +1,5 @@
 <form>
-  <div id="information-form-container" align='center'>
+  <div id="information-form-container" align="center">
 
     <h4>Permission Form</h4>
 
@@ -24,6 +24,12 @@
     </div>
 
     <div id="confirmation-checkboxes-container">
+      <mat-checkbox name="contact" class="checkbox" [(ngModel)]="confirmContact" required>I confirm that I have spoken with a representative over the phone</mat-checkbox>
+      <mat-checkbox name="information" class="checkbox" [(ngModel)]="confirmInformation" required>I confirm that I have provided accurate and up to date information</mat-checkbox>
+      <mat-checkbox name="permission" class="checkbox" [(ngModel)]="confirmPermission" required>I give permission for my child to attend</mat-checkbox>
+    </div>
+
+    <div>
 
     </div>
 

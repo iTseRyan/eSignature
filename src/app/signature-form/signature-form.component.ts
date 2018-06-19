@@ -9,8 +9,11 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./signature-form.component.scss']
 })
 export class SignatureFormComponent implements OnInit {
-  hide = true;
   value: string;
+  confirmContact: boolean = false;
+  confirmInformation: boolean = false;
+  confirmPermission: boolean = false;
+
 
   fName = new FormControl('', [
     Validators.required
