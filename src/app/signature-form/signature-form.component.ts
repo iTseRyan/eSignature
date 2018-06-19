@@ -21,6 +21,8 @@ export class SignatureFormComponent implements OnInit {
 
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
+
+  // TODO Implement form control and form groups
   fName = new FormControl('', [
     Validators.required
   ]);
@@ -61,6 +63,6 @@ export class SignatureFormComponent implements OnInit {
 
   sign(): void {
     this.signatureComplete();
-    console.log(this.signature);
+    // console.log(this.signature);
   }
 }

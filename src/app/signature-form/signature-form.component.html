@@ -3,9 +3,9 @@
 
     <h4>Permission Form</h4>
 
-    <div id=name-container>
+    <div id=parent-name-container>
       <mat-form-field>
-        <input matInput placeholder="First Name" id="fName" type="text" required #usernameInput>
+        <input matInput placeholder="Guardian First Name" id="parentFirstName" type="text" required #usernameInput>
         <p>{{value}}</p>
         <mat-error *ngIf="fName.hasError('required')">
           <span>First Name is <strong>required</strong></span>
@@ -13,7 +13,25 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Last Name" id="lName" type="text" required #passwordInput>
+        <input matInput placeholder="Guardian Last Name" id="parentLastName" type="text" required #passwordInput>
+        <p>{{value}}</p>
+        <mat-error *ngIf="lName.hasError('required')">
+          <span>Last Name is <strong>required</strong></span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div id=child-name-container>
+      <mat-form-field>
+        <input matInput placeholder="Child First Name" id="childFirstName" type="text" required #usernameInput>
+        <p>{{value}}</p>
+        <mat-error *ngIf="fName.hasError('required')">
+          <span>First Name is <strong>required</strong></span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Child Last Name" id="childLastName" type="text" required #passwordInput>
         <p>{{value}}</p>
         <mat-error *ngIf="lName.hasError('required')">
           <span>Last Name is <strong>required</strong></span>
@@ -35,9 +53,9 @@
     </div>
 
     <div>
-      <button type="button" id="clear-signature" mat-raised-button color="primary" (click)="clearSignature()">Clear Signature</button>
+      <button mat-raised-button type="button" id="clear-signature" mat-raised-button color="primary" (click)="clearSignature()">Clear Signature</button>
     </div>
 
-    <button type="button" id="login-button" mat-raised-button color="primary" (click)="sign()">Confirm</button>
+    <button mat-raised-button type="button" id="login-button" mat-raised-button color="primary" (click)="sign()">Confirm</button>
   </div>
 <!--</form>-->
