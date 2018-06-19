@@ -15,7 +15,7 @@ export class SignatureFormComponent implements OnInit {
   signature: string;
   signaturePadOptions: Object = {
     'minWidth': 1,
-    'canvasWidth': 600,
+    'canvasWidth': 580,
     'canvasHeight': 200
   };
 
