@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { SignaturePad } from "angular2-signaturepad/signature-pad";
 
 @Component({
   selector: 'app-signature-form',
@@ -13,7 +12,14 @@ export class SignatureFormComponent implements OnInit {
   confirmContact: boolean = false;
   confirmInformation: boolean = false;
   confirmPermission: boolean = false;
+  signature: string;
+  signaturePadOptions: Object = {
+    'minWidth': 1,
+    'canvasWidth': 600,
+    'canvasHeight': 200
+  };
 
+  @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
   fName = new FormControl('', [
     Validators.required
@@ -23,14 +29,38 @@ export class SignatureFormComponent implements OnInit {
     Validators.required
   ]);
 
+  signatureField = new FormControl('', [
+    Validators.required
+  ]);
+
+  contactControl = new FormControl('', [
+    Validators.required
+  ]);
+
+  informationControl = new FormControl('', [
+    Validators.required
+  ]);
+
+  permissionControl = new FormControl('', [
+    Validators.required
+  ]);
+
   constructor(
-    private router: Router,
-    private http: HttpClient,
   ) {}
 
   ngOnInit() {
   }
 
-  login(username: string, password: string): void {
+  signatureComplete() {
+    this.signature = this.signaturePad.toDataURL();
+  }
+
+  clearSignature() {
+    this.signaturePad.clear();
+  }
+
+  sign(): void {
+    this.signatureComplete();
+    console.log(this.signature);
   }
 }

@@ -5,11 +5,7 @@
   margin: auto;
 }
 
-#fName-container, #lName-container {
-  padding: 10px;
-}
-
-#loginBtn {
+#login-button, clear-signature {
   margin: 20px;
   width: 260px;
 }
@@ -29,4 +25,17 @@
   padding: 10px;
   display: block;
   margin: auto;
+}
+
+mat-form-field {
+  margin: 10px;
+}
+
+#signature-canvas {
+  margin: 20px;
+  width: 600px;
+  height: 200px;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
 }

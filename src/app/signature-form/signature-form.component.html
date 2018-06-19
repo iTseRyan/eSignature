@@ -1,21 +1,19 @@
-<form>
+<!--<form>-->
   <div id="information-form-container" align="center">
 
     <h4>Permission Form</h4>
 
-    <div id=fName-container>
+    <div id=name-container>
       <mat-form-field>
-        <input matInput placeholder="Enter your username" id="fName" type="text" [formControl]="fName" required #usernameInput>
+        <input matInput placeholder="First Name" id="fName" type="text" required #usernameInput>
         <p>{{value}}</p>
         <mat-error *ngIf="fName.hasError('required')">
           <span>First Name is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
-    </div>
 
-    <div id=lName-container>
       <mat-form-field>
-        <input matInput placeholder="Enter your password" id="lName" type="text" [formControl]="lName" required #passwordInput>
+        <input matInput placeholder="Last Name" id="lName" type="text" required #passwordInput>
         <p>{{value}}</p>
         <mat-error *ngIf="lName.hasError('required')">
           <span>Last Name is <strong>required</strong></span>
@@ -24,15 +22,22 @@
     </div>
 
     <div id="confirmation-checkboxes-container">
-      <mat-checkbox name="contact" class="checkbox" [(ngModel)]="confirmContact" required>I confirm that I have spoken with a representative over the phone</mat-checkbox>
-      <mat-checkbox name="information" class="checkbox" [(ngModel)]="confirmInformation" required>I confirm that I have provided accurate and up to date information</mat-checkbox>
-      <mat-checkbox name="permission" class="checkbox" [(ngModel)]="confirmPermission" required>I give permission for my child to attend</mat-checkbox>
+      <mat-checkbox color="primary" name="contact" class="checkbox" [(ngModel)]="confirmContact" required>I confirm that I have spoken with a representative over the phone</mat-checkbox>
+      <mat-checkbox color="primary" name="information" class="checkbox" [(ngModel)]="confirmInformation" required>I confirm that I have provided accurate and up to date information</mat-checkbox>
+      <mat-checkbox color="primary" name="permission" class="checkbox" [(ngModel)]="confirmPermission" required>I give permission for my child to attend</mat-checkbox>
+    </div>
+
+    <div id="signature-canvas">
+      <signature-pad
+        [options]="signaturePadOptions"
+      >
+      </signature-pad>
     </div>
 
     <div>
-
+      <button type="button" id="clear-signature" mat-raised-button color="primary" (click)="clearSignature()">Clear Signature</button>
     </div>
 
-    <button type="button" id="loginBtn" mat-raised-button color="primary" (click)="login(usernameInput.value,passwordInput.value)">Confirm</button>
+    <button type="button" id="login-button" mat-raised-button color="primary" (click)="sign()">Confirm</button>
   </div>
-</form>
+<!--</form>-->
