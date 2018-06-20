@@ -12,7 +12,8 @@ export class SignatureFormComponent implements OnInit {
   confirmContact: boolean = false;
   confirmInformation: boolean = false;
   confirmPermission: boolean = false;
-  signature: string;
+  signatureImage: string;
+  signCompleted: boolean = false;
   signaturePadOptions: Object = {
     'minWidth': 1,
     'canvasWidth': 580,
@@ -54,7 +55,7 @@ export class SignatureFormComponent implements OnInit {
   }
 
   signatureComplete() {
-    this.signature = this.signaturePad.toDataURL();
+    this.signatureImage = this.signaturePad.toDataURL();
   }
 
   clearSignature() {
@@ -63,6 +64,6 @@ export class SignatureFormComponent implements OnInit {
 
   sign(): void {
     this.signatureComplete();
-    // console.log(this.signature);
+    this.signCompleted = true;
   }
 }
