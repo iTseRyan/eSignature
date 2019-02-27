@@ -13,5 +13,5 @@ An electronic permission slip.
 - Utilizing npm component packages
 - Displaying DOM elements based on ngIf conditions
 - Exploring different ways to export and transfer image files/blob type files
-- Experimented with python flask backend for handling image file transferring (Currently unimplemented for demo)
-- Explored dropbox API options (Currently unimplemented for demo)
+- Experimenting with python flask backend for handling image file transferring via API calls (Currently unimplemented for demo)
+- Investigated dropbox API options (Currently unimplemented for demo)
