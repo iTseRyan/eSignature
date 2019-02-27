@@ -1,107 +1,113 @@
 <!--<form>-->
-  <div id="information-form-container" align="center">
+<div align="center" *ngIf="confirmed">
+  <img id="signature" [src]="imgData" *ngIf="imgData" />
+</div>
 
-    <h4>Permission Form</h4>
+<div id="information-form-container" align="center" *ngIf="!confirmed">
+  <h4>Permission Form</h4>
 
-    <div id=parent-name-container>
-      <mat-form-field>
-        <input matInput placeholder="Guardian First Name" id="parentFirstName" type="text" required #usernameInput>
-        <p>{{value}}</p>
-        <mat-error *ngIf="fName.hasError('required')">
-          <span>First Name is <strong>required</strong></span>
-        </mat-error>
-      </mat-form-field>
+  <div id=parent-name-container>
+    <mat-form-field>
+      <input matInput placeholder="Guardian First Name" id="parentFirstName" type="text">
+    </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Guardian Last Name" id="parentLastName" type="text" required #passwordInput>
-        <p>{{value}}</p>
-        <mat-error *ngIf="lName.hasError('required')">
-          <span>Last Name is <strong>required</strong></span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+    <mat-form-field>
+      <input matInput placeholder="Guardian Last Name" id="parentLastName" type="text">
+    </mat-form-field>
+  </div>
 
-    <div id=child-name-container>
-      <mat-form-field>
-        <input matInput placeholder="Child First Name" id="childFirstName" type="text" required #usernameInput>
-        <p>{{value}}</p>
-        <mat-error *ngIf="fName.hasError('required')">
-          <span>First Name is <strong>required</strong></span>
-        </mat-error>
-      </mat-form-field>
+  <div id=child-name-container>
+    <mat-form-field>
+      <input matInput placeholder="Child First Name" id="childFirstName" type="text">
+    </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Child Last Name" id="childLastName" type="text" required #passwordInput>
-        <p>{{value}}</p>
-        <mat-error *ngIf="lName.hasError('required')">
-          <span>Last Name is <strong>required</strong></span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+    <mat-form-field>
+      <input matInput placeholder="Child Last Name" id="childLastName" type="text">
+    </mat-form-field>
+  </div>
 
-    <div id="confirmation-checkboxes-container" align="left">
-      <mat-checkbox color="primary" name="contact" class="checkbox" [(ngModel)]="confirmContact" required>
-        <div class="checkbox-label">
-          I confirm that I have spoken with a representative of CityKidz over the phone
-        </div>
-      </mat-checkbox>
-
-      <mat-checkbox color="primary" name="information" class="checkbox" [(ngModel)]="confirmInformation" required>
-        <div class="checkbox-label">
-          I confirm that the information I have provided to CityKidz regarding my child is accurate and up to date.
-        </div>
-      </mat-checkbox>
-
-      <mat-checkbox color="primary" name="permission" class="checkbox" [(ngModel)]="confirmPermission" required>
-        <div class="checkbox-label">
-          I give permission for my child to attend
-        </div>
-      </mat-checkbox>
-    </div>
-
-    <div *ngIf="!signCompleted">
-      <div>Please Sign Here</div>
-      <div id="signature-canvas">
-        <signature-pad
-          [options]="signaturePadOptions"
-        >
-        </signature-pad>
+  <div id="confirmation-checkboxes-container" align="left">
+    <mat-checkbox color="primary" name="contact" class="checkbox">
+      <div class="checkbox-label">
+        I confirm that I have spoken with a representative of CityKidz over the phone
       </div>
+    </mat-checkbox>
 
-      <div id="clear-signature-button">
-        <button
-          mat-raised-button
-          type="button"
-          id="clear-signature"
-          color="primary"
-          (click)="clearSignature()">
-          Clear Signature
-        </button>
+    <mat-checkbox color="primary" name="information" class="checkbox">
+      <div class="checkbox-label">
+        I confirm that the information I have provided to CityKidz regarding my child is accurate and up to date.
       </div>
+    </mat-checkbox>
+
+    <mat-checkbox color="primary" name="permission" class="checkbox">
+      <div class="checkbox-label">
+        I give permission for my child to attend
+      </div>
+    </mat-checkbox>
+  </div>
+
+  <div *ngIf="!signCompleted">
+    <div>Please Sign Here</div>
+    <div id="signature-canvas">
+      <signature-pad
+        [options]="signaturePadOptions"
+      >
+      </signature-pad>
     </div>
 
-    <div *ngIf="signCompleted">
-      <img [src]="signatureImage" *ngIf="signatureImage" />
-    </div>
-
-    <div class="date-field-container">
-      <mat-form-field>
-        <input matInput [matDatepicker]="datePicker" placeholder="Today's Date">
-        <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
-        <mat-datepicker #datePicker></mat-datepicker>
-      </mat-form-field>
-    </div>
-
-    <div *ngIf="!signCompleted">
+    <div id="clear-signature-button">
       <button
         mat-raised-button
-        type="button"
-        id="login-button"
+        id="clear-signature"
         color="primary"
-        (click)="sign()">
-        Confirm
+        (click)="clearSignature()">
+        Clear Signature
       </button>
     </div>
-
   </div>
+
+  <div *ngIf="signCompleted">
+    <img alt="Signature" [src]="signatureImage" *ngIf="signatureImage" />
+  </div>
+
+  <div class="date-field-container">
+    <mat-form-field>
+      <input matInput [matDatepicker]="datePicker" placeholder="Today's Date">
+      <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="!signCompleted">
+    <button
+      mat-raised-button
+      id="login-button"
+      color="primary"
+      (click)="sign()">
+      Continue
+    </button>
+  </div>
+
+</div>
+
+<div id="confirmation-buttons" align="center">
+
+  <div *ngIf="signCompleted && !confirmed">
+    <button
+      mat-raised-button
+      class="confirmation-button"
+      color="primary"
+      (click)="screenshot()">
+      Confirm
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="restart()">
+      Restart
+    </button>
+  </div>
+
+</div>
 <!--</form>-->

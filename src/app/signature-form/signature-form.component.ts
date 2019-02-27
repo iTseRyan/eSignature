@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { SignaturePad } from "angular2-signaturepad/signature-pad";
+import * as html2canvas from "html2canvas";
 
 @Component({
   selector: 'app-signature-form',
@@ -8,12 +8,11 @@ import { SignaturePad } from "angular2-signaturepad/signature-pad";
   styleUrls: ['./signature-form.component.scss']
 })
 export class SignatureFormComponent implements OnInit {
-  value: string;
-  confirmContact: boolean = false;
-  confirmInformation: boolean = false;
-  confirmPermission: boolean = false;
   signatureImage: string;
   signCompleted: boolean = false;
+  imgData: string;
+  confirmed: boolean = false;
+
   signaturePadOptions: Object = {
     'minWidth': 1,
     'canvasWidth': 580,
@@ -21,32 +20,6 @@ export class SignatureFormComponent implements OnInit {
   };
 
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
-
-
-  // TODO Implement form control and form groups
-  fName = new FormControl('', [
-    Validators.required
-  ]);
-
-  lName = new FormControl('', [
-    Validators.required
-  ]);
-
-  signatureField = new FormControl('', [
-    Validators.required
-  ]);
-
-  contactControl = new FormControl('', [
-    Validators.required
-  ]);
-
-  informationControl = new FormControl('', [
-    Validators.required
-  ]);
-
-  permissionControl = new FormControl('', [
-    Validators.required
-  ]);
 
   constructor(
   ) {}
@@ -65,5 +38,21 @@ export class SignatureFormComponent implements OnInit {
   sign(): void {
     this.signatureComplete();
     this.signCompleted = true;
+  }
+
+  restart() {
+    this.signatureImage = null;
+    this.signCompleted = false;
+  }
+
+  screenshot() {
+    this.handleScreenshot();
+  }
+
+  handleScreenshot() {
+    html2canvas(document.querySelector("#information-form-container")).then(canvas => {
+      this.imgData = canvas.toDataURL();
+    });
+    this.confirmed = true;
   }
 }

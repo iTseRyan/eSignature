@@ -8,12 +8,10 @@
   border-width: 1px;
   border-style: solid;
   border-color: black;
-  margin-top: 2%;
-  min-width: 600px;
-  min-height: 600px;
+  width: 700px;
 }
 
-#login-button, clear-signature {
+#login-button, .clear-signature {
   margin: 5px;
   width: 260px;
 }
@@ -54,6 +52,10 @@ mat-form-field {
   white-space: normal;
 }
 
-#clear-signature-button {
+.confirmation-button {
+  margin: 10px;
+}
+
+#clear-signature-button, .confirmation-buttons {
   padding: 10px;
 }

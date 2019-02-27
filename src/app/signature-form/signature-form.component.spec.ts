@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignatureFormComponent } from './signature-form.component';
 
-describe('SignatureFormComponent', () => {
+describe('LandingPageComponent', () => {
   let component: SignatureFormComponent;
   let fixture: ComponentFixture<SignatureFormComponent>;
 
