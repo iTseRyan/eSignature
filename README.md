@@ -10,7 +10,7 @@ An electronic permission slip.
 - Step 5: (Incomplete) Send the image to the permission slip dropbox
 
 # Concepts Practiced
-- Utilizing npm component packages
+- Utilizing custom npm component packages
 - Displaying DOM elements based on ngIf conditions
 - Exploring different ways to export and transfer image files/blob type files
 - Experimenting with python flask backend for handling image file transferring via API calls (Currently unimplemented for demo)
